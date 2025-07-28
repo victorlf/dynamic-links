@@ -9,6 +9,14 @@ const __dirname = path.dirname(__filename)
 const staticFolder = path.join(__dirname, '../static')
 
 export default async ({ req, res, log }) => {
+  // Intercept assetlinks.json request
+  if (req.path === '/.well-known/assetlinks.json') {
+      return res.send(ASSETLINKS_JSON_CONTENT, 200, {
+          'Content-Type': 'application/json'
+      });
+  }
+
+  
   const config = JSON.parse(process.env.CONFIG ?? '[]')
 
   if (config.length === 0) {
