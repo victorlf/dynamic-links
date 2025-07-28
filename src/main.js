@@ -31,7 +31,7 @@ export default async ({ req, res, log }) => {
       }
   
     
-      return res.send(ASSETLINKS_JSON_CONTENT, 200, {
+      return res.send(ASSETLINKS_JSON_STRING, 200, {
           'Content-Type': 'application/json'
       });
   }
