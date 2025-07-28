@@ -8,9 +8,29 @@ const __dirname = path.dirname(__filename)
 
 const staticFolder = path.join(__dirname, '../static')
 
-export default async ({ req, res, log }) => {
-  // Intercept assetlinks.json request
-  if (req.path === '/.well-known/assetlinks.json') {
+export default async ({ req, res, log }) => {  
+      // Intercept assetlinks.json request
+      if (req.path === '/.well-known/assetlinks.json') {
+           let assetlinksContent = null;
+      try {
+          assetlinksContent = fs.readFileSync('../.well-known/assetlinks.json', 'utf8');
+      } catch (e) {
+          console.error(`Error reading assetlinks.json: ${e.message}`);
+          // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
+          assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
+      }
+    
+      // Ensure it's valid JSON for direct sending
+      let ASSETLINKS_JSON_STRING = assetlinksContent;
+      try {
+          // Attempt to parse and then stringify again to ensure it's minified and valid
+          ASSETLINKS_JSON_STRING = JSON.stringify(JSON.parse(assetlinksContent));
+      } catch (e) {
+          console.error(`Error parsing assetlinks.json content: ${e.message}`);
+          ASSETLINKS_JSON_STRING = '[]'; // Fallback
+      }
+  
+    
       return res.send(ASSETLINKS_JSON_CONTENT, 200, {
           'Content-Type': 'application/json'
       });
