@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common:query_web_app_intent", "delegate_permission/common:handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "br.com.lider.mobileapp", // Replace with your app's package name
+    "sha256_cert_fingerprints": [
+      "66:5C:99:40:32:49:90:EB:AE:E0:A9:96:B3:3E:7C:34:3F:99:CB:F3:86:BC:18:F4:AF:92:4C:44:E4:95:B6:59" // Replace with your SHA256 fingerprint
+    ]
+  }
+}]
