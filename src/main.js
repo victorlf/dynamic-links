@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import detectPlatforms from './detectors'
+import detectPlatforms from './detectors.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
