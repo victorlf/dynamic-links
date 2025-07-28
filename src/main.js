@@ -13,7 +13,7 @@ export default async ({ req, res, log }) => {
       if (req.path === '/.well-known/assetlinks.json') {
            let assetlinksContent = null;
       try {
-          assetlinksContent = fs.readFileSync('../.well-known/assetlinks.json', 'utf8');
+          assetlinksContent = readFileSync('../.well-known/assetlinks.json', 'utf8');
       } catch (e) {
           console.error(`Error reading assetlinks.json: ${e.message}`);
           // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
