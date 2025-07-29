@@ -33,20 +33,20 @@ export default async ({ req, res, log }) => {
       }]
       `;
     
-      // Ensure it's valid JSON for direct sending
-      let ASSETLINKS_JSON_STRING = assetlinksContent;
-      try {
-          context.log(`conteudo::::` + assetlinksContent);
-          // Attempt to parse and then stringify again to ensure it's minified and valid
-          ASSETLINKS_JSON_STRING = JSON.stringify(JSON.parse(assetlinksContent));
-      } catch (e) {
-          console.error(`conteudo:::: ${assetlinksContent}`);
-          console.error(`Error parsing assetlinks.json content: ${e.message}`);
-          ASSETLINKS_JSON_STRING = `["ff":"dd"]`; // Fallback
-      }
+      // // Ensure it's valid JSON for direct sending
+      // let ASSETLINKS_JSON_STRING = assetlinksContent;
+      // try {
+      //     context.log(`conteudo::::` + assetlinksContent);
+      //     // Attempt to parse and then stringify again to ensure it's minified and valid
+      //     ASSETLINKS_JSON_STRING = JSON.stringify(JSON.parse(assetlinksContent));
+      // } catch (e) {
+      //     console.error(`conteudo:::: ${assetlinksContent}`);
+      //     console.error(`Error parsing assetlinks.json content: ${e.message}`);
+      //     ASSETLINKS_JSON_STRING = `["ff":"dd"]`; // Fallback
+      // }
   
     
-      return res.send(ASSETLINKS_JSON_STRING, 200, {
+      return res.send(assetlinksContent, 200, {
           'Content-Type': 'application/json'
       });
   }
