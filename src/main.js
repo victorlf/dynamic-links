@@ -19,7 +19,7 @@ export default async ({ req, res, log }) => {
       //     // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
       //     assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
       // }
-      context.log('INICIO');
+      // context.log('INICIO');
       let assetlinksContent = `
       [{
         "relation": ["delegate_permission/common:query_web_app_intent", "delegate_permission/common:handle_all_urls"],
