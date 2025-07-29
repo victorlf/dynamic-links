@@ -9,16 +9,29 @@ const __dirname = path.dirname(__filename)
 const staticFolder = path.join(__dirname, '../static')
 
 export default async ({ req, res, log }) => {  
-      // Intercept assetlinks.json request
-      if (req.path === '/.well-known/assetlinks.json') {
-           let assetlinksContent = null;
-      try {
-          assetlinksContent = readFileSync(path.join(__dirname,'../.well-known/assetlinks.json'), 'utf8');
-      } catch (e) {
-          console.error(`Error reading assetlinks.json: ${e.message}`);
-          // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
-          assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
-      }
+      // // Intercept assetlinks.json request
+      // if (req.path === '/.well-known/assetlinks.json') {
+      //      let assetlinksContent = null;
+      // try {
+      //     assetlinksContent = readFileSync(path.join(__dirname,'../.well-known/assetlinks.json'), 'utf8');
+      // } catch (e) {
+      //     console.error(`Error reading assetlinks.json: ${e.message}`);
+      //     // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
+      //     assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
+      // }
+
+      let assetlinksContent = `
+      [{
+        "relation": ["delegate_permission/common:query_web_app_intent", "delegate_permission/common:handle_all_urls"],
+        "target": {
+          "namespace": "android_app",
+          "package_name": "br.com.lider.mobileapp",
+          "sha256_cert_fingerprints": [
+            "66:5C:99:40:32:49:90:EB:AE:E0:A9:96:B3:3E:7C:34:3F:99:CB:F3:86:BC:18:F4:AF:92:4C:44:E4:95:B6:59"
+          ]
+        }
+      }]
+      `;
     
       // Ensure it's valid JSON for direct sending
       let ASSETLINKS_JSON_STRING = assetlinksContent;
