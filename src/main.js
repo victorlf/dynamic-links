@@ -23,6 +23,7 @@ export default async ({ req, res, log }) => {
       // Ensure it's valid JSON for direct sending
       let ASSETLINKS_JSON_STRING = assetlinksContent;
       try {
+          console.log(assetlinksContent);
           // Attempt to parse and then stringify again to ensure it's minified and valid
           ASSETLINKS_JSON_STRING = JSON.stringify(JSON.parse(assetlinksContent));
       } catch (e) {
