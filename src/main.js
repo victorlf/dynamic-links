@@ -10,7 +10,7 @@ const staticFolder = path.join(__dirname, '../static')
 
 export default async ({ req, res, log }) => {  
       // // Intercept assetlinks.json request
-      // if (req.path === '/.well-known/assetlinks.json') {
+      if (req.path === '/.well-known/assetlinks.json') {
       //      let assetlinksContent = null;
       // try {
       //     assetlinksContent = readFileSync(path.join(__dirname,'../.well-known/assetlinks.json'), 'utf8');
