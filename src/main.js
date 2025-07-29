@@ -19,7 +19,7 @@ export default async ({ req, res, log }) => {
       //     // Handle error: perhaps set a default empty JSON or let the function fail later if this is critical
       //     assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
       // }
-      console.log('INICIO');
+      context.log('INICIO');
       let assetlinksContent = `
       [{
         "relation": ["delegate_permission/common:query_web_app_intent", "delegate_permission/common:handle_all_urls"],
@@ -36,7 +36,7 @@ export default async ({ req, res, log }) => {
       // Ensure it's valid JSON for direct sending
       let ASSETLINKS_JSON_STRING = assetlinksContent;
       try {
-          console.log(`conteudo::::` + assetlinksContent);
+          context.log(`conteudo::::` + assetlinksContent);
           // Attempt to parse and then stringify again to ensure it's minified and valid
           ASSETLINKS_JSON_STRING = JSON.stringify(JSON.parse(assetlinksContent));
       } catch (e) {
