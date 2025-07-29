@@ -42,7 +42,7 @@ export default async ({ req, res, log }) => {
       } catch (e) {
           console.error(`conteudo:::: ${assetlinksContent}`);
           console.error(`Error parsing assetlinks.json content: ${e.message}`);
-          ASSETLINKS_JSON_STRING = '[]'; // Fallback
+          ASSETLINKS_JSON_STRING = `["ff":"dd"]`; // Fallback
       }
   
     
