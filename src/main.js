@@ -20,8 +20,8 @@ export default async ({ req, res, log }) => {
       //     assetlinksContent = '[]'; // Fallback to an empty array to prevent parse errors
       // }
       // context.log('INICIO');
-      let assetlinksContent = `
-      [{
+      let assetlinksContent = 
+      `[{
         "relation": ["delegate_permission/common:handle_all_urls"],
         "target": {
           "namespace": "android_app",
@@ -30,8 +30,7 @@ export default async ({ req, res, log }) => {
             "66:5C:99:40:32:49:90:EB:AE:E0:A9:96:B3:3E:7C:34:3F:99:CB:F3:86:BC:18:F4:AF:92:4C:44:E4:95:B6:59"
           ]
         }
-      }]
-      `;
+      }]`;
     
       // // Ensure it's valid JSON for direct sending
       // let ASSETLINKS_JSON_STRING = assetlinksContent;
