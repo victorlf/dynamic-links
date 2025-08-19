@@ -22,7 +22,7 @@ export default async ({ req, res, log }) => {
       // context.log('INICIO');
       let assetlinksContent = 
       `[{
-        "relation": ["delegate_permission/common:handle_all_urls"],
+        "relation": ["delegate_permission/common.handle_all_urls"],
         "target": {
           "namespace": "android_app",
           "package_name": "br.com.lider.mobileapp",
